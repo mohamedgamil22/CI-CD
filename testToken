@@ -29,3 +29,4 @@ if int(str(status)[:1]) == 2 :
 else:
         print ("Token Request failed" , "Return Code" , tokenReq.status )
 
+print("Github build works ;)")
