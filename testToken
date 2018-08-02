@@ -17,7 +17,7 @@ _body='{"auth":{"identity":{"methods":["password"],"password":{"user":{"name":"M
 
 tokenReq = http.request('POST',url,body=_body,headers={"Content-Type" : "application/json"})
 
-status=tokenReq.status
+#status=tokenReq.status
 resBody= dict(json.loads(tokenReq.data))
 resHeader=tokenReq.headers
 
