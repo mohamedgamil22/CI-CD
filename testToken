@@ -1,0 +1,31 @@
+#!/bin/python3.6
+import urllib3
+import json
+
+
+http = urllib3.PoolManager()
+
+'''forming the URL of the Request ( BaseURL + URI )'''
+
+baseurl='https://iam.eu-west-0.prod-cloud-ocb.orange-business.com'
+uri='/v3/auth/tokens'
+url= baseurl + uri
+
+''' Body of the request'''
+
+_body='{"auth":{"identity":{"methods":["password"],"password":{"user":{"name":"MohamedGamil","password":"Test1234_","domain":{"name":"MohamedGamil"}}}},"scope":{"project":{"name":"eu-west-0"}}}}'
+
+tokenReq = http.request('POST',url,body=_body,headers={"Content-Type" : "application/json"})
+
+status=tokenReq.status
+resBody= dict(json.loads(tokenReq.data))
+resHeader=tokenReq.headers
+
+
+if int(str(status)[:1]) == 2 :
+        print ("Token Request succeeded" , "Return code" , status)
+        print ("Generated Token:" , resHeader["x-subject-token"])
+        print ("Expiration Date", resBody["token"]["issued_at"])
+else:
+        print ("Token Request failed" , "Return Code" , tokenReq.status )
+
