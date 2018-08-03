@@ -4,15 +4,17 @@ echo "============================="
 
 
 python testToken.py
+retCode=$?
 
-if [ ! $? -eq  0 ]
+if [ ! $retCode -eq  0 ]
 then
 
 echo "============================="
 echo "        script failed        "
 echo "============================="
 
-exit $?
+echo "python return code is" $retCode
+exit 1
 fi
 
 echo "============================="
