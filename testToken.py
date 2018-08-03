@@ -1,8 +1,8 @@
-import urllib3
 import json
+import urllib3
 
 
-http = urllib3.PoolManager()
+_http = urllib3.PoolManager()
 
 '''forming the URL of the Request ( BaseURL + URI )'''
 
@@ -14,7 +14,7 @@ url= baseurl + uri
 
 _body='{"auth":{"identity":{"methods":["password"],"password":{"user":{"name":"MohamedGamil","password":"Test1234_","domain":{"name":"MohamedGamil"}}}},"scope":{"project":{"name":"eu-west-0"}}}}'
 
-tokenReq = http.request('POST',url,body=_body,headers={"Content-Type" : "application/json"})
+tokenReq = _http.request('POST',url,body=_body,headers={"Content-Type" : "application/json"})
 
 status=tokenReq.status
 resBody= dict(json.loads(tokenReq.data))
