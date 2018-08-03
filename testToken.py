@@ -22,7 +22,7 @@ resHeader=tokenReq.headers
 
 
 if int(str(status)[:1]) == 2 :
-   print ("Token Request succeeded", "Return code" , status)
+    print ("Token Request succeeded", "Return code" , status)
     print ("Generated Token:", resHeader["x-subject-token"])
     print ("Expiration Date", resBody["token"]["issued_at"])
 else:
