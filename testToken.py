@@ -29,5 +29,3 @@ else:
     print ("Token Request failed", "Return Code", tokenReq.status )
 
 print ("Github build works ;)")
-print ("Output success")
-print ("Thanks for using my repo")
