@@ -1,25 +1,9 @@
-echo "============================="
-echo "     Runing the script       "
-echo "============================="
 
+#------------------------Running the script---------------#
 
 python testToken.py
-retCode=$?
 
-if [ ! $retCode -eq  0 ]
-then
-
-echo "============================="
-echo "        script failed        "
-echo "============================="
-
-echo "python return code is" $retCode
-exit 1
-fi
-
-echo "============================="
-echo "      Linting the code       "
-echo "============================="
+#------------------------Linting the script---------------#
 
 pylint -f parseable *.py | tee pylint.out
 
