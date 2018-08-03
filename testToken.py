@@ -1,6 +1,9 @@
 import json
 import urllib3
+import os
 
+user=os.environ['UserName_API']
+Pass=os.environ['Pass_API']
 
 _http = urllib3.PoolManager()
 
@@ -12,7 +15,7 @@ url= baseURL + uri
 
 ''' Body of the request'''
 
-_body='{"auth":{"identity":{"methods":["password"],"password":{"user":{"name":"MohamedGamil","password":"Test1234_","domain":{"name":"MohamedGamil"}}}},"scope":{"project":{"name":"eu-west-0"}}}}'
+_body='{"auth":{"identity":{"methods":["password"],"password":{"user":{"name":'+UserName_API+',"password":'+Pass_API+',"domain":{"name":"MohamedGamil"}}}},"scope":{"project":{"name":"eu-west-0"}}}}'
 
 tokenReq = _http.request('POST',url,body=_body,headers={"Content-Type" : "application/json"})
 
