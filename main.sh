@@ -10,3 +10,5 @@ echo "      Linting the code       "
 echo "============================="
 
 pylint -f parseable *.py | tee pylint.out
+
+exit 1
