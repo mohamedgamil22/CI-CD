@@ -4,6 +4,7 @@ import os
 
 user=os.environ['UserName_API']
 Pass=os.environ['Pass_API']
+print (UserName_API)
 
 _http = urllib3.PoolManager()
 
