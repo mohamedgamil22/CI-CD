@@ -1,4 +1,4 @@
-#import json
+import json
 import urllib3
 
 
@@ -22,10 +22,10 @@ resHeader=tokenReq.headers
 
 
 if int(str(status)[:1]) == 2 :
-        print ("Token Request succeeded" , "Return code" , status)
-        print ("Generated Token:" , resHeader["x-subject-token"])
-        print ("Expiration Date", resBody["token"]["issued_at"])
+   print ("Token Request succeeded", "Return code" , status)
+    print ("Generated Token:", resHeader["x-subject-token"])
+    print ("Expiration Date", resBody["token"]["issued_at"])
 else:
-        print ("Token Request failed" , "Return Code" , tokenReq.status )
+    print ("Token Request failed", "Return Code", tokenReq.status )
 
-print("Github build works ;)")
+print ("Github build works ;)")
