@@ -1,7 +1,7 @@
 
 #------------------------Running the script---------------#
 
-python testToken.py
+python3.6 testToken.py
 
 #------------------------Linting the script---------------#
 
