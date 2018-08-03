@@ -30,3 +30,4 @@ else:
 
 print ("Github build works ;)")
 print ("Output success")
+print ("Thanks for using my repo")
