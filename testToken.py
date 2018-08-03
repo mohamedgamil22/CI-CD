@@ -6,9 +6,9 @@ _http = urllib3.PoolManager()
 
 '''forming the URL of the Request ( BaseURL + URI )'''
 
-baseurl='https://iam.eu-west-0.prod-cloud-ocb.orange-business.com'
-uri='/v3/auth/tokens'
-url= baseurl + uri
+baseURL= 'https://iam.eu-west-0.prod-cloud-ocb.orange-business.com'
+uri= '/v3/auth/tokens'
+url= baseURL + uri
 
 ''' Body of the request'''
 
