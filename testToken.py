@@ -1,12 +1,14 @@
 import json
 import urllib3
 import os
+import logging
+
 
 user=os.environ['UserName_API']
-Pass=os.environ['Pass_API']
-print (UserName_API)
-
+passw=os.environ['Pass_API']
+print ("Hello "+user)
 _http = urllib3.PoolManager()
+
 
 '''forming the URL of the Request ( BaseURL + URI )'''
 
@@ -16,10 +18,11 @@ url= baseURL + uri
 
 ''' Body of the request'''
 
-_body='{"auth":{"identity":{"methods":["password"],"password":{"user":{"name":'+UserName_API+',"password":'+Pass_API+',"domain":{"name":"MohamedGamil"}}}},"scope":{"project":{"name":"eu-west-0"}}}}'
-
-tokenReq = _http.request('POST',url,body=_body,headers={"Content-Type" : "application/json"})
-
+_body="{'auth':{'identity':{'methods':['password'],'password':{'user':{'name':'"+user+"','password':'"+passw+"','domain':{'name':'MohamedGamil'}}}},'scope':{'project':{'name':'eu-west-0'}}}}"
+try:
+	tokenReq = _http.request('POST',url,body=_body,headers={"Content-Type" : "application/json"})
+except:
+	print ("Issue with request sent")
 status= tokenReq.status
 resBody= dict(json.loads(tokenReq.data))
 resHeader= tokenReq.headers
