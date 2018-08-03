@@ -1,4 +1,3 @@
-#!/bin/python3.6
 import urllib3
 import json
 
