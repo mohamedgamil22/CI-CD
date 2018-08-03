@@ -16,9 +16,9 @@ _body='{"auth":{"identity":{"methods":["password"],"password":{"user":{"name":"M
 
 tokenReq = _http.request('POST',url,body=_body,headers={"Content-Type" : "application/json"})
 
-status=tokenReq.status
+status= tokenReq.status
 resBody= dict(json.loads(tokenReq.data))
-resHeader=tokenReq.headers
+resHeader= tokenReq.headers
 
 
 if int(str(status)[:1]) == 2 :
