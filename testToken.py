@@ -36,5 +36,5 @@ else:
     print ("Token Request failed", "Return Code", tokenReq.status )
 
 mytoken=(resHeader["x-subject-token"])
-#testtoken
+#kk##testtoken
 print ("Github build works ;)")
