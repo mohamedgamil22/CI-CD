@@ -36,10 +36,4 @@ else:
     print ("Token Request failed", "Return Code", tokenReq.status )
 
 mytoken=(resHeader["x-subject-token"])
-<<<<<<< HEAD
-#kk##testtoken
-qweqweprint("testing jenkins tests")
-=======
-#koko##testtoken
->>>>>>> master
 print ("Github build works ;)")
