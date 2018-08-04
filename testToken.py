@@ -37,4 +37,5 @@ else:
 
 mytoken=(resHeader["x-subject-token"])
 #kk##testtoken
+print("testing jenkins tests")
 print ("Github build works ;)")
