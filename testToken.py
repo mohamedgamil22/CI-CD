@@ -34,5 +34,7 @@ if int(str(status)[:1]) == 2 :
     print ("Expiration Date", resBody["token"]["issued_at"])
 else:
     print ("Token Request failed", "Return Code", tokenReq.status )
+
 mytoken=(resHeader["x-subject-token"])
+
 print ("Github build works ;)")
