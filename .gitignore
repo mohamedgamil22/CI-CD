@@ -6,6 +6,9 @@ pylint.out
 # C extensions
 *.so
 
+#Swap file
+*.swp
+
 # Distribution / packaging
 .Python
 build/
