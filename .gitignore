@@ -7,7 +7,7 @@ pylint.out
 *.so
 
 #Swap file
-.swp
+*.swp
 
 # Distribution / packaging
 .Python
