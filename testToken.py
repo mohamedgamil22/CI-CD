@@ -1,51 +1,45 @@
-import json
-import urllib3
+# import json
 import os
-import logging
+# import logging
 import FELibrary
 
 
-#user=os.environ['UserName_API']
-#passw=os.environ['Pass_API']
+USER = os.environ['UserName_API']
+PASSW = os.environ['Pass_API']
 
-user="MohamedGamil"
-passw="Test1234_"
-print ("Hello "+user)
+# USER="MohamedGamil"
+# PASSW="Test1234_"
+# print ("Hello "+USER)
 
 
 
-'''forming the URL of the Request ( BaseURL + URI )'''
 
-baseURL= FELibrary.GET_SRVCURL("iam","eu-west-0")
-uri= '/v3/auth/tokens'
-url= baseURL + uri
-print (url)
 
 ''' Body of the request'''
-headers={'Content-Type' : 'application/json'}
-_body= "{\"auth\":{\"identity\":{\"methods\":[\"password\"],\"password\":{\"user\":{\"name\":\""+user+"\",\"password\":\""+passw+"\",\"domain\":{\"name\":\"MohamedGamil\"}}}},\"scope\":{\"project\":{\"name\":\"eu-west-0\"}}}}"
+BODY= "{\"auth\":{\"identity\":{\"methods\":[\"password\"],\"password\":{\"user\":{\"name\":\""+USER+"\",\"password\":\""+PASSW+"\",\"domain\":{\"name\":\"MohamedGamil\"}}}},\"scope\":{\"project\":{\"name\":\"eu-west-0\"}}}}"
+
 try:
 	#_http = urllib3.PoolManager()
 	#tokenReq = _http.request('POST',url,body=_body,headers={"Content-Type" : "application/json"})
-	tokenReq = FELibrary.CALL_FEAPI(Verb="POST",URI="/v3/auth/tokens",Body=_body)
+	tokenReq = FELibrary.CALL_FEAPI(Verb="POST", URI="/v3/auth/tokens", Body=BODY)
 except:
-	print ("Issue with request sent")
+	print("Issue with request sent")
 
 # print (tokenReq)
-status = tokenReq.status_code
+STATUS = tokenReq.status_code
 # resBody = dict(json.loads(tokenReq.data))
-resBody = tokenReq.json()
+RESP_BODY = tokenReq.json()
 # resHeader = tokenReq.headers()
-print("Token will expire at: ",resBody['token']['expires_at'])
+print("Token will expire at: ", RESP_BODY['token']['expires_at'])
 # print(resHeader)
 
-if int(str(status)[:1]) == 2 :
-    print ("Token Request succeeded","Return code",status)
-    print ("Generated Token:", tokenReq.headers["X-Subject-Token"])
+if int(str(STATUS)[:1]) == 2 :
+    print("Token Request succeeded", "Return code", STATUS)
+    print("Generated Token:", tokenReq.headers["X-Subject-Token"])
     # print ("Expiration Date", resBody["token"]["issued_at"])
-    mytoken=(tokenReq.headers["X-Subject-Token"])
+    MYTOKEN = (tokenReq.headers["X-Subject-Token"])
 else:
-    print ("Token Request failed","Return Code", tokenReq.status_code)
+    print("Token Request failed","Return Code", STATUS)
 
 
 print ("Github build works ;)")
