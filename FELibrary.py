@@ -3,13 +3,13 @@
 import requests
 
 
-REGION_LIST = ["eu-west-0","na-east-0","as-south-0"]
-SERVICE_LIST = ["iam","ecs" ,"evs" ,"ims"]
+REGION_LIST = ["eu-west-0", "na-east-0", "as-south-0"]
+SERVICE_LIST = ["iam", "ecs", "evs", "ims"]
 
 """
 
 def FE_Param():
-	FE_Param.REGION_LIST = ["eu-west-0" , "na-east-0" , "as-south-0" ]
+	FE_Param.REGION_LIST = ["eu-west-0", "na-east-0", "as-south-0" ]
 
 """
 def CALL_FEAPI(Verb="GET", URI="/", Body=None,Token=None, Service="iam", Region="eu-west-0"):
@@ -26,7 +26,7 @@ def CALL_FEAPI(Verb="GET", URI="/", Body=None,Token=None, Service="iam", Region=
         Headers = {'Content-Type': 'application/json' , 'X-Auth-Token':Token}
     if Verb == "GET":
         req = requests.get(ReqURL, headers= Headers )
-    	return r.text
+        return req.text
 		##
     elif Verb == "POST":
         req= requests.post(ReqURL, data=Body, headers=Headers)
