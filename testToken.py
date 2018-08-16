@@ -16,7 +16,7 @@ print ("Hello "+user)
 
 '''forming the URL of the Request ( BaseURL + URI )'''
 
-baseURL= FELibrary.Get_SrvcURL("iam","eu-west-0")
+baseURL= FELibrary.GET_SRVCURL("iam","eu-west-0")
 uri= '/v3/auth/tokens'
 url= baseURL + uri
 print (url)
