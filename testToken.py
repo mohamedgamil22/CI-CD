@@ -27,7 +27,7 @@ _body= "{\"auth\":{\"identity\":{\"methods\":[\"password\"],\"password\":{\"user
 try:
 	#_http = urllib3.PoolManager()
 	#tokenReq = _http.request('POST',url,body=_body,headers={"Content-Type" : "application/json"})
-	tokenReq = FELibrary.CALL_FEAPI(Verb = "POST" , URI = "/v3/auth/tokens" , Body = _body)
+	tokenReq = FELibrary.CALL_FEAPI(Verb="POST",URI="/v3/auth/tokens",Body=_body)
 except:
 	print ("Issue with request sent")
 
@@ -40,12 +40,12 @@ print("Token will expire at: ",resBody['token']['expires_at'])
 # print(resHeader)
 
 if int(str(status)[:1]) == 2 :
-    print ("Token Request succeeded", "Return code" , status)
+    print ("Token Request succeeded","Return code",status)
     print ("Generated Token:", tokenReq.headers["X-Subject-Token"])
     # print ("Expiration Date", resBody["token"]["issued_at"])
     mytoken=(tokenReq.headers["X-Subject-Token"])
 else:
-    print ("Token Request failed", "Return Code", tokenReq.status_code)
+    print ("Token Request failed","Return Code", tokenReq.status_code)
 
 
 print ("Github build works ;)")
