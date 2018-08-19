@@ -1,7 +1,7 @@
 
 #------------------------Running the script---------------#
 
-python3.6 testToken.py
+python3.6 fe_iam.py
 #test
 #------------------------Linting the script---------------#
 
